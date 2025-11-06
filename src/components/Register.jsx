@@ -17,7 +17,7 @@ function Register() {
     e.preventDefault();
 
     axios
-      .post('https://emloyee-crud-django-2.onrender.com/register', {
+      .post('https://emloyee-management.onrender.com/register', {
         name: employee.name,
         email: employee.email,
         password: employee.password

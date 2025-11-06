@@ -8,7 +8,7 @@ function EmployeeDashboard() {
 
   useEffect(() => {
     axios
-      .get("https://emloyee-crud-django-2.onrender.com/getall")
+      .get("https://emloyee-management.onrender.com/getall")
       .then((response) => {
         setEmployee(response.data);
       })
@@ -21,7 +21,7 @@ function EmployeeDashboard() {
     if (!window.confirm("Are you sure you want to delete this employee?")) return;
 
     axios
-      .delete(`https://emloyee-crud-django-2.onrender.com/delete?id=${id}`)
+      .delete(`https://emloyee-management.onrender.com/delete?id=${id}`)
       .then(() => {
         setEmployee((prev) => prev.filter((emp) => emp.id !== id));
         alert("Employee deleted successfully!");

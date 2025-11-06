@@ -15,7 +15,7 @@ function EmployeeProfile() {
 
     // ✅ Use deployed backend API
     axios
-      .get(`https://emloyee-crud-django-2.onrender.com/getById?id=${id}`)
+      .get(`https://emloyee-management.onrender.com/getById?id=${id}`)
       .then((res) => {
         console.log("Employee data:", res.data);
         setEmp(res.data);
@@ -37,7 +37,7 @@ function EmployeeProfile() {
     if (!emp) return;
 
     axios
-      .put("https://emloyee-crud-django-2.onrender.com/update", emp)
+      .put("https://emloyee-management.onrender.com/update", emp)
       .then(() => {
         alert("Employee updated successfully!");
         navigate("/dashboard");

@@ -19,7 +19,7 @@ function Login() {
     e.preventDefault();
 
     axios
-      .post("https://emloyee-crud-django-2.onrender.com`/login", {
+      .post("https://emloyee-management.onrender.com`/login", {
         email: loginForm.email,
         password: loginForm.password,
       })
