@@ -19,21 +19,21 @@ function Login() {
     e.preventDefault();
 
     axios
-      .post("https://emloyee-management.onrender.com`/login", {
+      .post("https://employee-management.onrender.com/login", {
         email: loginForm.email,
         password: loginForm.password,
       })
       .then((response) => {
         if (response.data) {
-          navigate("/dashboard");
           alert("Login Successfully Completed");
+          navigate("/dashboard");
         } else {
           alert("Invalid Credentials");
         }
       })
       .catch((error) => {
         console.error(error);
-        alert("Something went wrong");
+        alert("Something went wrong. Please try again.");
       });
   };
 
