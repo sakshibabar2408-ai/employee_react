@@ -13,9 +13,9 @@ function EmployeeProfile() {
   useEffect(() => {
     if (!id) return;
 
-    // ✅ Use deployed backend API
+    // ✅ Corrected API link
     axios
-      .get(`https://emloyee-management.onrender.com/getById?id=${id}`)
+      .get(`https://employee-management.onrender.com/getById?id=${id}`)
       .then((res) => {
         console.log("Employee data:", res.data);
         setEmp(res.data);
@@ -37,7 +37,7 @@ function EmployeeProfile() {
     if (!emp) return;
 
     axios
-      .put("https://emloyee-management.onrender.com/update", emp)
+      .put("https://employee-management.onrender.com/update", emp)
       .then(() => {
         alert("Employee updated successfully!");
         navigate("/dashboard");

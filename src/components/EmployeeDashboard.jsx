@@ -6,9 +6,10 @@ function EmployeeDashboard() {
   const [employee, setEmployee] = useState([]);
   const navigate = useNavigate();
 
+  // 🔹 Fetch all employees
   useEffect(() => {
     axios
-      .get("https://emloyee-management.onrender.com/getall")
+      .get("https://emloyee-management.onrender.com/getAll")
       .then((response) => {
         setEmployee(response.data);
       })
@@ -17,6 +18,7 @@ function EmployeeDashboard() {
       });
   }, []);
 
+  // 🔹 Delete Employee
   const deleteEmployee = (id) => {
     if (!window.confirm("Are you sure you want to delete this employee?")) return;
 
@@ -27,6 +29,11 @@ function EmployeeDashboard() {
         alert("Employee deleted successfully!");
       })
       .catch((error) => alert(error.message || "Something went wrong"));
+  };
+
+  // 🔹 Navigate to view profile
+  const viewProfile = (id) => {
+    navigate(`/employee/${id}`); // this will open employee profile page
   };
 
   return (
@@ -63,12 +70,15 @@ function EmployeeDashboard() {
                   <td className="px-6 py-3">{emp.email}</td>
                   <td className="px-6 py-3">{emp.password}</td>
                   <td className="px-6 py-3 text-center flex justify-center gap-3">
+                    {/* 🔹 View Profile Button */}
                     <button
-                      onClick={() => navigate(`/employee/${emp.id}`)}
+                      onClick={() => viewProfile(emp.id)}
                       className="bg-green-500 hover:bg-green-600 text-white px-4 py-1.5 rounded-lg transition transform hover:scale-105"
                     >
                       View Profile
                     </button>
+
+                    {/* 🔹 Delete Button */}
                     <button
                       onClick={() => deleteEmployee(emp.id)}
                       className="bg-red-500 hover:bg-red-600 text-white px-4 py-1.5 rounded-lg transition transform hover:scale-105"
